@@ -1,0 +1,7 @@
+.all-messages {
+    /* overflow: scroll; */
+    max-height: 75vh; 
+    
+    /* Ensure only the message content scrolls */
+    overflow-y: auto;
+}

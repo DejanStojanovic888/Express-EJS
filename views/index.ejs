@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+
+<body>
+    <h1 class="display-3 text-center fw-bold text-primary ">Index Page</h1><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <h3 class="display-5 text-primary fw-bold">Latest messages:</h3><br>
+                <div class="all-messages sidebar-max-height overflow-y-scroll">
+                    <% users.slice().reverse().forEach(msgObj => { %>
+                        <dl>
+                            <dt>
+                                <%= msgObj.email %>
+                            </dt>
+                            <dd>
+                                <%= msgObj.message %>
+                            </dd>
+                        </dl>
+                        <% }) %>
+                </div>
+            </div>
+            <div class="col-9">
+                <h1 class="display-4 fw-bold text-primary">Welcome to our App</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quidem cupiditate! Dolore amet modi
+                    quas suscipit, ducimus libero deserunt ratione repellat aspernatur. Consectetur quia deleniti nulla
+                    amet architecto quibusdam! Eligendi.
+                    Blanditiis rerum, obcaecati quibusdam pariatur et nobis sapiente quam corrupti, accusamus illo saepe
+                    iste debitis voluptates quasi a excepturi ab optio voluptas, dicta delectus odit aspernatur autem
+                    unde neque. Eos!
+                    Saepe qui eligendi animi, veniam praesentium ipsum magni fuga rem est inventore blanditiis nemo
+                    reiciendis eaque consectetur necessitatibus dolore veritatis nesciunt recusandae, sed laboriosam
+                    nulla. Repudiandae maxime enim error porro?
+                    Ipsam iusto nisi voluptate, ullam suscipit quam ad sapiente saepe, quis itaque fugiat officiis
+                    architecto possimus blanditiis accusamus natus. Praesentium, reprehenderit consectetur. Cum facere,
+                    debitis vel commodi impedit neque eaque!
+                    Eius suscipit dicta provident eos ea, qui, dolor, obcaecati nostrum veniam iusto vel maxime
+                    repellendus incidunt ullam hic quos! Reprehenderit fuga magni necessitatibus nostrum alias sint
+                    ipsam dolorem! Consectetur, error?
+                    Veniam, soluta numquam unde optio dignissimos, et dicta modi doloremque consequuntur sit fugit cum
+                    ducimus esse reiciendis alias tempore! Ullam dolores incidunt consequatur consequuntur. Vero earum
+                    excepturi necessitatibus nobis optio.
+                    Quo reiciendis similique ut. Iusto, necessitatibus dolores? Aspernatur, commodi dignissimos.
+                    Cupiditate neque pariatur aliquam quisquam tempora commodi adipisci, iure ea cum fuga quia est
+                    officia sapiente veniam sit voluptatem fugit!
+                    Possimus, velit exercitationem quas qui impedit perferendis blanditiis a ipsam, laboriosam nemo
+                    aliquid eligendi necessitatibus enim ut dignissimos, perspiciatis eius itaque eaque quam inventore
+                    hic vitae fuga incidunt. Et, quasi!
+                    Reprehenderit beatae doloribus cupiditate temporibus quam accusantium adipisci nam? Itaque
+                    repudiandae sequi, voluptatum veritatis laboriosam quae iste nesciunt quos nihil ex, suscipit,
+                    repellendus vel molestias minima fugit ullam unde magni!
+                    Aliquam repellendus voluptatum corrupti. Ad doloremque illum eveniet sint facere nesciunt voluptates
+                    reiciendis molestias blanditiis maxime nulla nihil nobis minus debitis explicabo neque animi, eum
+                    amet porro. Quis, maiores ducimus!</p>
+                <div class="row">
+                    <div class="col-6">
+                        <form action="/messages" method="post" class="bg-primary-subtle p-3 rounded">
+                            <input type="text" id='email' class="form-control" placeholder="email" name="email"><br>
+                            <textarea name="message" id="msg" class="form-control"></textarea><br>
+                            <button class="btn btn-primary" id="sub">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
