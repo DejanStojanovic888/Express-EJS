@@ -15,12 +15,15 @@ subBtn.addEventListener('click', (e) => {
             message: messageInput.value
         })
     }).then(res => res.json())
-      .then(data => {
-        console.log('MAIN.JS konzola: ' + JSON.stringify(data))
-        console.log('Ovo je response u Main.js: ' + data.data)
-        allMessages.innerHTML = '';
-        data.data.forEach(msgObj => {
-            allMessages.insertAdjacentHTML('afterBegin', `<dl><dt>${msgObj.email}</dt><dd>${msgObj.message}</dd></dl>`);
+        .then(data => {
+            console.log('MAIN.JS konzola: ' + JSON.stringify(data))
+            console.log('Ovo je response u Main.js: ' + data.data)
+            allMessages.innerHTML = '';
+            data.data.forEach(msgObj => {
+                allMessages.insertAdjacentHTML('afterBegin', `<dl><dt>${msgObj.email}</dt><dd>${msgObj.message}</dd></dl>`);
+            })
+            emailInput.value = '';
+            messageInput.value = '';
+            emailInput.focus();
         })
-    })
 })    
