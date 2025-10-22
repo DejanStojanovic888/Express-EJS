@@ -15,15 +15,24 @@
         <div class="row">
             <div class="col-3">
                 <h3 class="display-5 text-primary fw-bold">Latest messages:</h3><br>
-                <div class="all-messages sidebar-max-height overflow-y-scroll">
-                    <% users.slice().reverse().forEach(msgObj => { %>
-                        <dl>
-                            <dt>
-                                <%= msgObj.email %>
+                <div class="all-messages sidebar-max-height overflow-y-scroll p-3 border rounded">
+                    <% users.slice(-5).reverse().forEach(msgObj=> { %>
+                        <dl class="mb-3 p-2 bg-light rounded shadow-sm">
+
+                            <dt class="mb-1">
+                                <strong class="text-primary fw-bold">
+                                    <%= msgObj.email %>
+                                </strong>
                             </dt>
-                            <dd>
+
+                            <dd class="text-dark mb-1">
                                 <%= msgObj.message %>
                             </dd>
+
+                            <dd class="text-muted small mb-0">
+                                <%= msgObj.date %>
+                            </dd>
+
                         </dl>
                         <% }) %>
                 </div>
@@ -72,6 +81,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./main.js"></script>
 </body>
 
