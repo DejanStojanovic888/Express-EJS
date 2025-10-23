@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 const data = require('./messages.json')
+const dayjs = require('dayjs')
+
+now = dayjs(new Date())
+const formattedDate = now.format('DD/MM/YYYY');
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist/css')) //za bootstrap
@@ -17,7 +21,7 @@ app.get('/', (req, res) => {
 app.post('/messages', (req, res) => {
     fs.readFile('./messages.json', 'utf-8', (error, content) => {
         let arr = JSON.parse(content)
-        arr.push(req.body) // req.body tretiramo odmah kao objekat
+        arr.push({...req.body, date: formattedDate}) // req.body tretiramo odmah kao objekat
         // console.log('server.js arr[0]: ' + arr[0])
         fs.writeFile('./messages.json', JSON.stringify(arr), (err) => { // samo jedan argument (err)
             res.send({status: "super", data: arr}) // ovo saljemo u main.js(res.send automatski pretvara object u JSON)
